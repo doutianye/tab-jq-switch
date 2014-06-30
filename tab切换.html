@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style type="text/css">
+		*{padding: 0;margin:0;}
+		.tit{list-style: none;width: 100px;line-height: 30px;background-color: #f99;float: left;}
+		.selected{background-color: #99f;}
+		.tab{width: 304px;margin: 0 auto;}
+		#tabcon .show{display: block;}
+		#tabcon .hide{display: none;}
+		.con1{display: none;}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<ul class="tab-tit" id="tabtit">
+			<li class="tit selected">切换1</li>
+			<li class="tit">切换2</li>
+			<li class="tit">切换3</li>
+		</ul>
+		<div class="tab-con" id="tabcon">
+			<div class="con1">切换1</div>
+			<div class="con1">切换2</div>
+			<div class="con1">切换3</div>	
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	var $con1 = $("#tabcon div");
+	var	$tit = $("#tabtit li");
+	$tit.click(function(){
+		var index = $tit.index(this)// $(this)和 $(this) [0] 全部可以
+		switch(index){
+			case 0 : $tit[0].className="tit selected"; 
+			         $tit[1].className = "tit";
+			         $tit[2].className = "tit";
+					 $con1[0].className="show"; 
+			         $con1[1].className = "hide";
+			         $con1[2].className = "hide"; break;
+			case 1 : $tit[1].className="tit selected"; 
+			         $tit[0].className = "tit";
+			         $tit[2].className = "tit";
+					 $con1[1].className="show"; 
+			         $con1[0].className = "hide";
+			         $con1[2].className = "hide"; break; 
+			default: $tit[2].className="tit selected"; 
+			         $tit[1].className = "tit";
+			         $tit[0].className = "tit";
+					 $con1[2].className="show"; 
+			         $con1[0].className = "hide";
+			         $con1[1].className = "hide";     
+		}
+	});
+		// if(index == 0){
+		// 	$con1[0].className = "show";	
+		// }else{
+		// 	$con1[1].className = "hide";
+		// 	
+		// }
+		// if(index == 1){
+		// 	$con1[1].className = "show";	
+		// }else{
+		// 	$con1[0].className = "hide";
+		// 	$con1[2].className = "hide";
+		// }
+		// if(index == 2){
+		// 	$con1[2].className = "show";	
+		// }else{
+		// 	$con1[1].className = "hide";
+		// 	$con1[0].className = "hide";
+		// }
+		
+		// alert($con1[index].innerHTML);
+		// $con1[index] 数组由 jq对象转变成了js对象，因此innerHTML
+		// $con1[index].html() --- >Uncaught TypeError: undefined is not a function
+		// $con1[index].addClass("show").siblings().addClass("hide");
+	
+	// var Tabtit = document.getElementById("tabtit"),
+	//     Tabcon = document.getElementById("tabcon"),
+	//     Tit = Tabtit.getElementsByClassName("tit"),
+	//     Con = Tabcon.getElementsByTagName("div");
+	    // alert("ByClassName is prototype "+typeof(Tit));
+	    // alert("ByTagName is prototype "+typeof(Con)); 
+	// Tit[0].onclick = function(){
+	// 	Con[0].className = "show";
+	// 	Con[1].className = 'hide';
+	// 	Con[2].className = 'hide';
+	// }
+	// Tit[1].onclick = function(){
+	// 	Con[1].className = 'show';
+	// 	Con[0].className = 'hide';
+	// 	Con[2].className = 'hide';
+	// }
+	// Tit[2].onclick = function(){
+	// 	Con[2].className = 'show';
+	// 	Con[0].className = 'hide';
+	// 	Con[1].className = 'hide';
+	// }
+	// for (var i = 0,len=Tit.length; i < len; i++) {
+	// 	Tit[i].onclick = function(){
+	// 		for (var j = 0; j < len; j++) {
+	// 			if (this == Tit[j]) {
+	// 				Con[j].className = 'show';
+	// 			}else{
+	// 				Con[j].className = 'hide';
+	// 			}
+	// 		};
+	// 	}
+	// };
+	// for (var i = 0,len=Tit.length; i < len; i++) {
+	// 	Tit[i].onclick = function(){
+	// 		for (var j = 0; j < len; j++) {
+	// 			if (this==Tit[j]) {
+	// 				Con[j].className ="show";
+	// 			}else{
+	// 				Con[j].className ="hide";
+	// 			}
+	// 		};
+	// 	}
+	// };
+	// Tabtit.onclick = function(event){
+	// 	// alert(Tabtit.innerHTML);
+	// 	var e = event.srcElement||event.target;
+	// 	if (e = HTMLLIElement){
+	// 		// Con[0].className = 'show';
+	// 	}
+	// }
+
+</script>
+</html>
